@@ -2,7 +2,7 @@
 - vanlife
 ## Overview
 - Rent the perfect van to make your perfect road trip.
-## View project [here](https://Qinsvanlife.netlify.com/)
+## View project [here](https://qinsvanlife.netlify.app/)
 ## Environment
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ## Build tools

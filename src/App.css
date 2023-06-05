@@ -29,8 +29,9 @@ header a {
 }
 
 header a:hover {
-  color: #161616;
-  text-decoration: underline;
+  color: #2c5e75e1;
+  text-decoration: underline dotted #2c5e75e1 2px;
+  
 }
 
 header .login-icon {
