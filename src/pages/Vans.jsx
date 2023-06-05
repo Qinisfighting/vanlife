@@ -5,7 +5,7 @@ import { useState,useEffect } from "react"
 export default function Vans() {
     const [vans, setVans] = useState([])
     useEffect(() => {    
-        fetch("/api/vans")   //from the mock server (server.js)
+        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   //from the mock server (server.js)
             .then(res => res.json())
             .then(data => setVans(data))
             
@@ -14,13 +14,13 @@ export default function Vans() {
         const vansElements = vans.map(van => {
             const {id, imageUrl, name, price, type} = van
             return (
-                <div key={id} className="vans-list">
+                <div key={id} className="van-tile">
                   <img src={imageUrl} alt={name} className="van-img"/>
                   <div className="van-text">
                     <h3>{name}</h3>
-                    <span>€{price}/day</span>
+                    <span>€{price}/day</span>   
                  </div>
-                 <i className={`van-type ${type} selected`}>{type}</i>
+                 <div className='van-type'>{type}</div>
 
                </div> 
             )
@@ -37,7 +37,9 @@ export default function Vans() {
               <span className="clear-filters">Clear filters</span>
             </div>    
            
-        {vansElements}                  
+            <div className="vans-lists">
+                {vansElements}
+            </div>                
                        
             
         </div>

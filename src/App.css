@@ -70,6 +70,12 @@ nav {
     font-size: 1.7em;
   }
 
+  .van-text  h3 {
+    font-size: .9em;
+   }
+   .van-text  span{
+    font-size: .8em;
+   }
 }
 
 .home-container {
@@ -215,28 +221,44 @@ nav {
 }
 
 .vans-lists {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  gap: 34px;
+  margin: 40px 0 70px;
+} 
 .van-img {
-  min-width: 150px;
-  max-width: 350px;
-  padding: 5px;
+  max-width: 100%;
+  border-radius: 5px;
 }
-
+.van-tile {
+  display: block;
+}
 .van-text {
   padding: 0 5px
 }
  .van-text h3 {
   float: left;
+  padding: 0;
+  margin:0
  }
  .van-text span {
   float: right;
+  padding: 0;
+  margin:0
  }
 
  .van-type {
-  background-color: bisque;
-  padding: 5px;
-  float: left;
- }
+  
+  height: 25px;
+  width: 70px;
+  margin:30px 0 5px;
+  padding: 2px 11px;
+  font-style: normal;
+  font-weight: 500;
+  border: 1px outset #d1d1d1;
+  border-radius: 5px;
+  color: #4d4d4d;
+  background: #FFEAD0;
+  
+}
