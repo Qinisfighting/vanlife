@@ -246,8 +246,10 @@ nav {
 }
 
 .van-detail img {
-  border-radius: 5px;
+  border-radius: 3px;
   margin: 5vh 2vw;
+  box-shadow: 1px 1px 4px black;
+  
 }
 
 .van-detail h2 {
