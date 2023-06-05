@@ -59,9 +59,9 @@ nav {
   background-size: cover;
   min-height: 70vh;
   color: white;
-  padding: 50px 20vw 50px 10vw;
+  padding: 30px 20vw 30px 10vw;
   position: relative;
-  margin: 0 10px 50px
+  margin: 0
 
 }
 
@@ -104,7 +104,7 @@ nav {
 }
 
 .about-hero-image {
-  width: 95vw;
+  width: 97vw;
   margin: 0; 
 
 }
@@ -233,7 +233,8 @@ nav {
 
 
 @media only screen and (max-width: 480px) {
-  
+   
+
 
   header {
     flex-direction: column;
@@ -270,8 +271,9 @@ nav {
   }
 
   .about-hero-image {
-    max-width: 85vw;
-    object-fit:cover   
+    max-width: 90vw;
+    object-fit:cover;
+    
   }
 
   .about-page-cta {
