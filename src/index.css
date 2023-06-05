@@ -15,12 +15,13 @@ html {
 
 body {
 	
-	margin: 0;
+	margin: 0 30px 100px;
 	padding: 0;
 	background-color: #fff7ed;	
 	-ms-overflow-style: none;
     scrollbar-width: none;
-    min-height: 100vh;
+    
+	
 }
 
 body::-webkit-scrollbar {

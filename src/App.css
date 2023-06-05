@@ -48,35 +48,7 @@ nav {
   display: flex;
 }
 
-@media only screen and (max-width: 480px) {
-  
 
-  header {
-    flex-direction: column;
-    margin-bottom: 3vh;
-    
-  }
-  header .site-logo {
-    margin: 15px auto;
-  }
-
-  nav {
-    display: flex;
-    gap:4vw;
-    
-  }
-
-  .Vans-container h1 {
-    font-size: 1.7em;
-  }
-
-  .van-text  h3 {
-    font-size: .9em;
-   }
-   .van-text  span{
-    font-size: .8em;
-   }
-}
 
 .home-container {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
@@ -128,11 +100,13 @@ nav {
 
 .about-page-container{
   position: relative;  
+ 
 }
 
 .about-hero-image {
-  width: 98vw;
-  margin: 0 1vw; 
+  width: 95vw;
+  margin: 0; 
+
 }
 
 .about-h2 {
@@ -140,7 +114,7 @@ nav {
 }
 .about-page-cta {
   margin: auto;
-  padding:5px 40px 60px;
+  padding:5px 20px 60px;
   width:95vw; 
   line-height: 1em; 
 }
@@ -163,17 +137,11 @@ nav {
   transform: translate(1px, 1px);
 }
 
-@media only screen and (min-width: 780px) {
-  .about-hero-image {
-    max-height: 60vh;
-    object-fit:cover   
-  }
 
-}
 
 .Vans-container{
   
-  max-width: 600px;
+  max-width: 1000px;
   margin:auto;
   text-align: left;
   padding: 10px;  
@@ -222,7 +190,7 @@ nav {
 
 .vans-lists {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   gap: 34px;
   margin: 40px 0 70px;
@@ -235,16 +203,16 @@ nav {
   display: block;
 }
 .van-text {
-  padding: 0 5px
+  padding: 2px 5px 0;
 }
  .van-text h3 {
   float: left;
-  padding: 0;
+  padding:0;
   margin:0
  }
  .van-text span {
   float: right;
-  padding: 0;
+  padding-top: 2px;
   margin:0
  }
 
@@ -252,7 +220,7 @@ nav {
   
   height: 25px;
   width: 70px;
-  margin:30px 0 5px;
+  margin:30px 0 5px 5px;
   padding: 2px 11px;
   font-style: normal;
   font-weight: 500;
@@ -260,5 +228,67 @@ nav {
   border-radius: 5px;
   color: #4d4d4d;
   background: #FFEAD0;
+  
+}
+
+
+@media only screen and (max-width: 480px) {
+  
+
+  header {
+    flex-direction: column;
+    margin-bottom: 3vh;
+    
+  }
+  header .site-logo {
+    margin: 15px auto;
+  }
+
+  nav {
+    display: flex;
+    gap:4vw;
+    
+  }
+ 
+   
+  .Vans-container h1 {
+    font-size: 1.5em;
+  }
+
+  .van-text  h3 {
+    font-size: .8em;
+   }
+   .van-text  span{
+    font-size: .8em;
+    padding-top: 0;
+   }
+}
+
+@media only screen and (max-width: 680px) {
+  .vans-lists {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-hero-image {
+    max-width: 85vw;
+    object-fit:cover   
+  }
+
+  .about-page-cta {
+    margin: auto;
+    padding:5px 10px 60px;
+    width:85vw; 
+    line-height: 1.2em; 
+  }
+ 
+}
+
+@media only screen and (min-width: 780px) {
+  .about-hero-image {
+    max-height: 60vh;
+    object-fit:cover   
+  }
+
+
   
 }

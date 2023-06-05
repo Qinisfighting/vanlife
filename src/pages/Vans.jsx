@@ -5,7 +5,7 @@ import { useState,useEffect } from "react"
 export default function Vans() {
     const [vans, setVans] = useState([])
     useEffect(() => {    
-        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   //from the mock server (server.js)
+        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // mock server (server.js) dosen't work...
             .then(res => res.json())
             .then(data => setVans(data))
             
@@ -14,21 +14,26 @@ export default function Vans() {
         const vansElements = vans.map(van => {
             const {id, imageUrl, name, price, type} = van
             return (
+               
                 <div key={id} className="van-tile">
+                  <Link to={`/vans/${van.id}`}>
                   <img src={imageUrl} alt={name} className="van-img"/>
                   <div className="van-text">
                     <h3>{name}</h3>
                     <span>€{price}/day</span>   
-                 </div>
+                  </div>
+                  </Link>
                  <div className='van-type'>{type}</div>
-
-               </div> 
+                 
+                </div> 
+                
             )
         })
 
     return (
         <div className="Vans-container">
             <h1>Explore our van options</h1>
+            <hr />
             <div className="filters">
               <button className="simple"><Link to="simple">Simple</Link></button>
               <button className="rugged"><Link to="rugged">Rugged</Link></button>
