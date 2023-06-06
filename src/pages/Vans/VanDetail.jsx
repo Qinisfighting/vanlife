@@ -4,17 +4,16 @@ import { useState, useEffect } from "react"
 
 
 export default function VanDetail() {
-    const params = useParams() 
+    const params = useParams() // console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx line 19), output: {id: "2"}
     const [van, setVan] = useState(null)
-    const vanIndex = params.id-1
     
-    // console.log(params) e.g when van with id 2 is clicked, output: {id: "2"}
+    
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // mock server (server.js) dosen't work...
         .then(res => res.json())
-        .then(data => setVan(data[vanIndex]))
-    }, [vanIndex])
+        .then(data => setVan(data.filter(item => item.id === params.id)[0])) //setVan(data.filter(item=>({item.id===param.id})))
+    }, [params.id])
     console.log(van)
 
     return (
@@ -24,7 +23,7 @@ export default function VanDetail() {
             <img src={van.imageUrl} />
             <i className="van-type">{van.type}</i>
             <h2>{van.name}</h2>
-            <p className="van-price"><span>${van.price}</span>/day</p>
+            <p className="van-price"><span>€{van.price}</span>/day</p>
             <p>{van.description}</p>
             <button className="link-button">Rent this van</button>
         </div>
