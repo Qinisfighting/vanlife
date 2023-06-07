@@ -5,18 +5,19 @@ import { Outlet } from "react-router-dom"
 export default function HostLayout() {
     return (
        <div className="host-container">
-        <nav className="host-nav">
-       
-         <NavLink to='/host'>
+         <nav className="host-nav">     
+           <NavLink to='/host'>
               Dashboard
-         </NavLink>
+           </NavLink>
          <NavLink to='/host/income'>
               Income
          </NavLink>
+         <NavLink to='/host/hostvans'>
+              Vans
+         </NavLink>
          <NavLink to='/host/reviews'>
               Reviews
-          </NavLink>
-       
+         </NavLink>       
        </nav>
        <Outlet />
        </div> 

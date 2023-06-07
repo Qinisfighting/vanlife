@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+	
+}
+
+
+html {
+	font-family: "Inter", sans-serif;	
+	position: relative;
+	margin: 0;
+    padding: 0;
+	color: #302f2f;
+  }
+
+
+body {
+	
+	margin: 0 20px 100px;
+	padding: 0;
+	background-color: #fff7ed;	
+	-ms-overflow-style: none;
+    scrollbar-width: none;
+    
+	
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+a {
+    text-decoration: unset;
+    color: unset;
+  }
+  
+  header {
+    height: 110px;
+    display: flex;
+    align-items: center;
+    padding-block: 10px;
+    font-size: 15px;
+    margin: 0 3vw
+  }
+  
+  header .site-logo {
+    margin-right: auto;
+    font-weight: 900;
+    font-size: 28px;
+    
+  }
+  
+  header a {
+    text-decoration: none;
+    color: #4d4d4d;
+    font-weight: 600;
+    padding: 5px 20px;
+  }
+  
+  header a:hover {
+    color: #2c5e75e1;
+    text-decoration: underline dotted #2c5e75e1 2px;
+    
+  }
+  
+  header .login-icon {
+    height: 20px;
+    width: 20px;
+  }
+  
+  header .login-link {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  nav {
+    display: flex;
+  }
+  
+
+
+footer {	
+	left: 0;
+	bottom: 20px;
+	height: 30px;
+	width: 100%;
+	color: #252525;
+	text-align: center;
+	padding: 15px 0;
+	font-size: .9em;
+	font-weight: 650;
+	position: absolute;
+}
+
+@media only screen and (max-width: 480px) {
+
+    header {
+      flex-direction: column;
+      margin-bottom: 3vh;
+      
+    }
+    header .site-logo {
+      margin: 15px auto;
+    }
+  
+    nav {
+      display: flex;
+      gap:4vw;
+      
+    }
+
+  }
+  
+ 

@@ -303,6 +303,12 @@ nav {
   padding:20px 1vw 10px 0;
  }
 
+ .host-nav a:hover {
+  color: rgb(77, 76, 76);
+  font-weight: 600;
+  text-decoration:underline;
+ }
+
 @media only screen and (max-width: 480px) {
    
 

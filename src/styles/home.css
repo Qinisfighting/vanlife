@@ -1,0 +1,74 @@
+.home-container {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+        url("../assets/background.jpg") no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 70vh;
+    color: white;
+    padding: 30px 20vw 30px 10vw;
+    position: relative;
+    margin: 0
+  
+  }
+  
+  
+  .home-container h1 {
+    font-weight: 700;
+    font-size: 2.25rem;
+    padding-top: 20px
+   
+  }
+  
+  .home-container p {
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+  
+  .home-container a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #1f4557;
+    border: none;
+    width: 35vw;
+    margin: 80px 0;
+    padding-block: .75rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .home-container a:hover {
+    transform: translate(2px, 2px);
+  }
+
+  @media only screen and (max-width: 480px) {
+
+   
+    .home-container h1 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      padding-top: 20px
+     
+    }
+    
+    .home-container p {
+      padding-top: 0;
+      padding-bottom: 30px;
+    }
+    
+  }
+  
+  
+  @media only screen and (max-width: 680px) {
+   
+  }
+  
+  @media only screen and (min-width: 980px) {
+    
+   
+  }
