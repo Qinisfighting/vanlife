@@ -59,7 +59,7 @@ a {
   
   header a:hover {
     color: #2c5e75e1;
-    text-decoration: underline dotted #2c5e75e1 2px;
+    text-decoration: underline  #2c5e75e1 1.5px;
     
   }
   
