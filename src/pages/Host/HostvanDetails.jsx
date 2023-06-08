@@ -19,15 +19,14 @@ export default function VanDetail() {
         textDecoration: 'underline'
     }
 
-
     return (
     <div className="hostvan-detail-container">
-      <Link to=".." relative="path"><h3> ⪡ Back to all vans</h3></Link>
+      <Link to='/host/hostvans'><h3> ⪡ Back to your vans</h3></Link>
       {/*  to=".." relative="path"   equals   to='/host/hostvans'  */}
       {hostvan ? (
         <div className="hostvan-detail">
             <div className="hostvan-detail-header">
-              <img src={hostvan.imageUrl} className="hostvan-detail-img" />
+              <img src={hostvan.imageUrl} className="hostvan-detail-img"/>
              <div className='hostvan-detail-header-text'>
               <i className="hostvan-type">{hostvan.type}</i>
               <h2>{hostvan.name}</h2>

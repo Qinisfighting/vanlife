@@ -88,6 +88,7 @@ i {
   .hostvan-detail-img {
     width:350px;
     padding: 20px;
+    border-radius: 5px;
        
   } 
 
@@ -124,6 +125,7 @@ i {
   .host-van-detail-image {
      width:140px;
      margin:0 20px 50px;
+     border-radius: 5px;
 
   }
    @media only screen and (max-width: 680px) { 
