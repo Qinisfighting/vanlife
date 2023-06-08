@@ -9,6 +9,7 @@ import VanDetail from "./pages/Vans/VanDetail"
 import Dashboard from "./pages/Host/Dashboard" 
 import Income from "./pages/Host/Income" 
 import Hostvans from "./pages/Host/Hostvans" 
+import HostvanDetails from "./pages/Host/HostvanDetails" 
 import Reviews from "./pages/Host/Reviews" 
 
 
@@ -28,6 +29,7 @@ function App() {
             <Route index element={<Dashboard />} /> 
             <Route path="income" element={<Income />}  /> 
             <Route path="hostvans" element={<Hostvans />}  /> 
+            <Route path="hostvans/:id" element={<HostvanDetails />}  /> 
             <Route path="reviews" element={<Reviews />}  /> 
          </Route>  
        </Route>

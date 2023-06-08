@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { Outlet } from "react-router-dom"
 
 
@@ -13,7 +13,7 @@ export default function HostLayout() {
     return (
        <div className="host-container">
          <nav className="host-nav">     
-           <NavLink to='.' style={({isActive}) => isActive ? activeStyles : null}>
+           <NavLink to='.' end style={({isActive}) => isActive ? activeStyles : null}>
               Dashboard
            </NavLink>
          <NavLink to='income' style={({isActive}) => isActive ? activeStyles : null}>

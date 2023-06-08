@@ -1,6 +1,7 @@
 .host-container {
-    margin:30px 35vw;
-    max-width: 80vw;
+    margin:30px auto;
+    padding: 0;
+    width: 70vw;
     
   }
    .host-nav a {
@@ -14,9 +15,49 @@
     text-decoration:underline;
    }
 
+
+   .hostvan-tile {
+    display: inline-block;
+    margin: 8px 0;
+    width:100%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.432);
+
+   }
+
+   .hostvan-img {
+    width:200px;
+    float: left;
+    padding: 20px;
+    
+   }
+
+    .hostvan-text{
+    right:0;
+    padding-top:10px
+    }
+
+
    @media only screen and (max-width: 680px) { 
     .host-container {
-      margin:30px 5vw    
+      margin:30px 3vw;
+      width: 80vw;    
     }
-   
+    
+   .hostvans-container h2{
+    
+    font-weight: 400;
+    font-size: 25px;
+    
+   }
+
+    .hostvan-img {
+      width:170px;
+     
+      
+     }
+    .hostvan-text{
+      font-size: smaller;
+      
+      }
   }
