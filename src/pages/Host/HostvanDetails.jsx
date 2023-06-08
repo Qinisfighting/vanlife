@@ -1,6 +1,5 @@
 
-import { Link, NavLink } from "react-router-dom"
-import { useParams } from "react-router-dom"
+import { Link, NavLink, useParams, Outlet } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 export default function VanDetail() {
@@ -23,7 +22,8 @@ export default function VanDetail() {
 
     return (
     <div className="hostvan-detail-container">
-       <Link to='/host/hostvans'><h3> ⪡ Back to all vans</h3></Link>
+      <Link to=".." relative="path"><h3> ⪡ Back to all vans</h3></Link>
+      {/*  to=".." relative="path"   equals   to='/host/hostvans'  */}
       {hostvan ? (
         <div className="hostvan-detail">
             <div className="hostvan-detail-header">
@@ -34,7 +34,7 @@ export default function VanDetail() {
               <p className="hostvan-price"><span>€{hostvan.price}</span>/day</p>
             </div> 
             </div> 
-            <div className="hostvan-detail-body">
+            <nav className="hostvan-detail-body">
                <NavLink to='.' end style={({isActive}) => isActive ? activeStyles : null}>
                   Details
                </NavLink >
@@ -45,7 +45,8 @@ export default function VanDetail() {
                   Photos
                </NavLink>
                  
-            </div> 
+            </nav> 
+            <Outlet context={{ hostvan }}/>
         </div>
     ) : <h2>Loading...</h2>}
 </div>)

@@ -34,7 +34,7 @@
 
     .hostvan-text{
     right:0;
-    padding-top:10px
+    padding-top:10px;
     }
 
 
@@ -81,30 +81,51 @@ i {
   padding: 50px 15px;
 }
 
+.hostvan-detail-header-text span {
+  font-size: 1.2em;
+  font-weight: 550;
+}
   .hostvan-detail-img {
     width:350px;
     padding: 20px;
-    border-radius: 5px;
-    
+       
   } 
 
   .hostvan-detail-body {
     margin-bottom: 50px;
+    
   }
 
   .hostvan-detail-body a {
-    padding: 5px 2vw 50px 20px;
+    padding: 5px 2vw 0 20px;
     
     
   }
 
   .hostvan-detail-body a:hover {
     text-decoration: underline;
-    font-weight: 600;
-    
+    font-weight: 600  
     
   }
 
+  .host-van-detail-info {
+    width:95%;
+    margin:0 20px 50px;
+    padding-right:20px;
+    
+  }
+ 
+
+  .host-van-price{
+    margin:0 20px 50px
+
+  }
+
+  .host-van-detail-image {
+     width:140px;
+     margin:0 20px 50px;
+
+  }
    @media only screen and (max-width: 680px) { 
     .host-container {
       margin:30px 3vw;
@@ -152,9 +173,14 @@ i {
         }
 
         .hostvan-detail-body a {
-          padding: 5px 0 50px 20px;
+          padding: 5px 0 0 20px;
+          font-size: .9em;  
+          
+        }
+        .host-van-detail-info {
           font-size: .9em;
-          
-          
+        }
+        .host-van-detail-image{
+          width:100px
         }
   }
