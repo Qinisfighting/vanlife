@@ -6,7 +6,7 @@ export default function Vans() {
     const [vans, setVans] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
     useEffect(() => {    
-        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // mock server (server.js) dosen't work...
+        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // tried to mock server (server.js) but sen't work...
             .then(res => res.json())
             .then(data => setVans(data))
             
@@ -53,7 +53,7 @@ export default function Vans() {
               <button className="simple"  onClick={() => handleFilterChange("type", "simple")}><Link to="simple">Simple</Link></button>
               <button className="rugged" onClick={() => handleFilterChange("type", "rugged")}><Link to="rugged">Rugged</Link></button>
               <button className="luxury"  onClick={() => handleFilterChange("type", "luxury")}><Link to="luxury">Luxury</Link></button>
-              
+              {/*or can wrap or replace the buttons here in/with <Link>, and e.g give path to="?type=simple" for switching filter, and to="." to clear filter, in this way setSearchParams will not be used*/}
               <span className="clear-filters" onClick={() => handleFilterChange("type", null)}>Clear filters</span>
             </div>    
            
