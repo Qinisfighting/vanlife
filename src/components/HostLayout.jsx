@@ -14,6 +14,7 @@ export default function HostLayout() {
        <div className="host-container">
          <nav className="host-nav">     
            <NavLink to='.' end style={({isActive}) => isActive ? activeStyles : null}>
+            {/*'end' prop tells the router to end the matching here, so that dashhoard will not show as active all the time beause of its index position */}
               Dashboard
            </NavLink>
          <NavLink to='income' style={({isActive}) => isActive ? activeStyles : null}>
