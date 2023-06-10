@@ -34,27 +34,34 @@ export default function Vans() {
             )
         })
 
-        function handleFilterChange(key, value) {
-            setSearchParams(prevParams => {
-                if (value === null) {
-                    prevParams.delete(key)
-                } else {
-                    prevParams.set(key, value)
-                }
-                return prevParams
-            })
-        }
+   /** second way below for the filter function: we don't need to hard code the setSearchParams object property, 
+    * instead to create a function with key value pair in string as parameters to merge(concanate) the new url part to the current one.
+    * 
+    * function handleFilterChange(key, value) {
+        setSearchParams(prevParams => {
+            if (value === null) {
+                prevParams.delete(key)
+            } else {
+                prevParams.set(key, value)
+            }
+            return prevParams
+        })
+         ...
+     <button onClick={() => handleFilterChange("type", "simple")}>Simple</button>
+     <button onClick={() => handleFilterChange("type", null)}>Clear filter</button>
+    } */
 
     return (
         <div className="Vans-container">
             <h1>Explore our van options</h1>
             <hr />
             <div className="filters">
-              <button className="simple"  onClick={() => handleFilterChange("type", "simple")}><Link to="simple">Simple</Link></button>
-              <button className="rugged" onClick={() => handleFilterChange("type", "rugged")}><Link to="rugged">Rugged</Link></button>
-              <button className="luxury"  onClick={() => handleFilterChange("type", "luxury")}><Link to="luxury">Luxury</Link></button>
+              <button className={`${typeFilter === "simple" ? "simple-selected" : "simple"}`}  onClick={() => setSearchParams({type: "simple"})}>Simple</button>
+              <button className={`${typeFilter === "luxury" ? "luxury-selected" : "luxury"}`} onClick={() => setSearchParams({type: "luxury"})}>Rugged</button>
+              <button className={`${typeFilter === "rugged" ? "rugged-selected" : "rugged"}`}  onClick={() => setSearchParams({type: "rugged"})}>Luxury</button>
               {/*or can wrap or replace the buttons here in/with <Link>, and e.g give path to="?type=simple" for switching filter, and to="." to clear filter, in this way setSearchParams will not be used*/}
-              <span className="clear-filters" onClick={() => handleFilterChange("type", null)}>Clear filters</span>
+             { typeFilter && <span className="clear-filters" onClick={() => setSearchParams({})}>Clear filters</span> }
+            
             </div>    
            
             <div className="vans-lists">

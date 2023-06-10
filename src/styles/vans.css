@@ -26,12 +26,34 @@
   
   .simple{
     background-color: #1f4557;
+
   }
   .luxury{
     background-color: rgba(129, 73, 129, 0.986);
   }
   .rugged{
+    background-color: peru; 
+  }
+
+  .simple-selected{
+    background-color: #1f4557;
+    width:88px;
+    height:30px;
+    font-size: 1em;
+    
+  }
+  .luxury-selected{
+    background-color: rgba(129, 73, 129, 0.986);
+    width:88px;
+    height:30px;
+    font-size: 1em;
+  }
+  .rugged-selected{
     background-color: peru;
+    width:88px;
+    height:30px;
+    font-size: 1em;
+
   }
   
   .filters span {
@@ -47,6 +69,8 @@
     color: #2c5e75e1;
   }
   
+
+
   .vans-lists {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
