@@ -84,7 +84,7 @@ a {
     display: flex;
   }
   
-
+  
 
 footer {	
 	left: 0;
@@ -97,6 +97,36 @@ footer {
 	font-size: .9em;
 	font-weight: 650;
 	position: absolute;
+}
+
+.container-404 {
+  text-align: center;
+  max-width: 1000px;
+  height: 65vh;
+  margin: 50px auto;
+  position: relative;
+}
+
+.page_error {
+  width: 500px;
+  margin:0 auto
+  
+}
+
+.back_home {
+  width: 30px;
+ 
+}
+
+
+.container-404 a {
+  margin:0 auto;
+  position: absolute;
+  right:0;
+  bottom: 0;
+  width: 200px;
+  
+  
 }
 
 @media only screen and (max-width: 480px) {
@@ -116,6 +146,16 @@ footer {
       
     }
 
+  
+    .page_error {
+      width: 300px;
+      margin:30px auto
+    }
+    .container-404 h1 {
+      font-size: 1.5rem;
+    }
+    
+
+
   }
   
- 

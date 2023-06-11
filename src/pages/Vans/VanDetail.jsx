@@ -16,10 +16,14 @@ export default function VanDetail() {
     }, [params.id])
     //console.log(van)
    
-    const search = location.state?.filter || ""   //optional chaining
+    const search = location.state?.filter || ""   //optional chaining, same like const search = location.state && location.state.filter || ""
+    const type = location.state?.type || "all"
+    
     return (
     <div className="van-detail-container">   
-       <Link to={`..${search}`}><h3> ⪡ Back to vans</h3></Link> 
+       <Link to={`..${search}`}><h3> ⪡ Back to {type} vans</h3></Link>
+      {/** or slice out the type from the search url string(e.g '/vans/?type=rugged'), it start from index 12 until the end, 
+         and render <h3> ⪡ Back to all {search.slice(12)} vans</h3>. */}
       {van ? (
         <div className="van-detail">
             <img src={van.imageUrl} />
