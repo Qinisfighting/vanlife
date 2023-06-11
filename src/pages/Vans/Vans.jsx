@@ -20,7 +20,8 @@ export default function Vans() {
             return (
                
                 <div key={id} className="van-tile">
-                  <Link to={`/vans/${id}`}>
+                  <Link to={id} state={{ filter: `/vans/?${searchParams.toString()}` }}> 
+                  {/**bring state as prop in, so that when the user goes back from single van to all vans, he dosen't lose the filter */}
                   <img src={imageUrl} alt={name} className="van-img"/>
                   <div className="van-text">
                     <h3>{name}</h3>

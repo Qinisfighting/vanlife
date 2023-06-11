@@ -16,7 +16,7 @@ export default function Hostvans() {
             return (
                
                 <div key={id} className="hostvan-tile">
-                  <Link to={`/host/hostvans/${id}` }>
+                  <Link to={id}>
                   <img src={imageUrl} alt={name} className="hostvan-img" />
                   <div className="hostvan-text">
                     <h3>{name}</h3>
