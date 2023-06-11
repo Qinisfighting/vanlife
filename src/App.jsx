@@ -40,7 +40,8 @@ function App() {
               <Route path="photos" element={<HostVanPhotos />} />
             </Route> 
          </Route>
-         <Route path='*' element={<Page404 />} />
+         <Route path='*' element={<Page404 />} />  
+        {/*hcatch all route with path='*' */} 
        </Route>
      </Routes>
   </BrowserRouter>
