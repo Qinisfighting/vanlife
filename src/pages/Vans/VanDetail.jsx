@@ -14,16 +14,12 @@ export default function VanDetail() {
         .then(res => res.json())
         .then(data => setVan(data.filter(item => item.id === params.id)[0])) //setVan(data.filter(item=>({item.id===param.id})))
     }, [params.id])
-    console.log(van)
-    //<Link to={`..${search}`}>
-    // className={`${typeFilter === "simple" ? "simple-selected" : "simple"}`}
+    //console.log(van)
+   
     const search = location.state?.filter || ""   //optional chaining
     return (
-    <div className="van-detail-container">
-       
-       <Link to={`..${search}`}><h3> ⪡ Back to vans</h3></Link>
-     
-      
+    <div className="van-detail-container">   
+       <Link to={`..${search}`}><h3> ⪡ Back to vans</h3></Link> 
       {van ? (
         <div className="van-detail">
             <img src={van.imageUrl} />
