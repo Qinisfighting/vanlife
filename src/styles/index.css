@@ -108,9 +108,10 @@ footer {
 }
 
 .page_error {
-  width: 500px;
-  margin:0 auto
-  
+  max-width: 500px;
+  margin:0 auto;
+  width: 100%;
+  height: auto
 }
 
 .back_home {
@@ -124,7 +125,8 @@ footer {
   position: absolute;
   right:0;
   bottom: 0;
-  width: 200px;
+  width: 300px;
+  font-size: 1em;
   
   
 }
@@ -148,13 +150,14 @@ footer {
 
   
     .page_error {
-      width: 300px;
       margin:30px auto
     }
     .container-404 h1 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
-    
+    .container-404 a {
+      width: 200px;
+    }
 
 
   }

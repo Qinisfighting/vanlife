@@ -41,7 +41,7 @@ function App() {
             </Route> 
          </Route>
          <Route path='*' element={<Page404 />} />  
-        {/*hcatch all route with path='*' */} 
+        {/*catchall route with path='*' */} 
        </Route>
      </Routes>
   </BrowserRouter>

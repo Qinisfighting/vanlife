@@ -1,15 +1,23 @@
 import { Link } from "react-router-dom"
 import { useState,useEffect } from "react"
+import { getVans } from "../../api"
 
 export default function Hostvans() {
     const [hostVans, setHostVans] = useState([])
-    useEffect(() => {    
-        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // mock server (server.js) dosen't work...
-            .then(res => res.json())
-            .then(data => setHostVans(data.filter(item => item.hostId === '123')))
-            console.log(hostVans)
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {   
+        async function loadHostVans() {
+            setLoading(true)
+            const data = await getVans()
+            setHostVans(data.filter(item => item.hostId === '123'))
+            setLoading(false)      
+        }
+        
+        loadHostVans()
             
     }, [hostVans])
+
+   
 
         const vansElements = hostVans.map(van => {
             const {id, imageUrl, name, price} = van
@@ -29,6 +37,7 @@ export default function Hostvans() {
             )
         })
 
+      
     return (
         <div className="hostvans-container">
             <h2>Your listed vans</h2>

@@ -1,14 +1,21 @@
 import { Link, useSearchParams } from "react-router-dom"
 import { useState,useEffect } from "react"
-
+import { getVans } from "../../api"
 
 export default function Vans() {
     const [vans, setVans] = useState([])
     const [searchParams, setSearchParams] = useSearchParams()
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {    
-        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // tried to mock server (server.js) but sen't work...
-            .then(res => res.json())
-            .then(data => setVans(data))
+        async function loadVans() {
+            setLoading(true)
+            const data = await getVans()
+            setVans(data)
+            setLoading(false)
+        }
+        
+        loadVans()
             
     }, [])
         const typeFilter = searchParams.get("type")
@@ -20,7 +27,7 @@ export default function Vans() {
             return (
                
                 <div key={id} className="van-tile">
-                  <Link to={id} state={{ filter: `/vans/?${searchParams.toString()}` , type: typeFilter }} > 
+                  <Link to={id} state={{ filter: `/vans/?${searchParams.toString()}`, type: typeFilter }} > 
                   {/**bring state as prop in, so that when the user goes back from single van to all vans, he dosen't lose the filter */}
                   <img src={imageUrl} alt={name} className="van-img"/>
                   <div className="van-text">
@@ -51,6 +58,9 @@ export default function Vans() {
      <button onClick={() => handleFilterChange("type", "simple")}>Simple</button>
      <button onClick={() => handleFilterChange("type", null)}>Clear filter</button>
     } */
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div className="Vans-container">
