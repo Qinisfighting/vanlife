@@ -1,41 +1,26 @@
 
-import { Link, NavLink, useParams, Outlet } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { Link, NavLink, useParams, Outlet, useLoaderData } from "react-router-dom"
 import { getVans } from "../../api"
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+    return getVans()
+}
 
 export default function VanDetail() {
     const params = useParams() // console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx line 19), output: {id: "2"}
-    const [hostvan, setHostVan] = useState(null)
-    const [loading, setLoading] = useState(false)
-    
-    
-
-    useEffect(() => {
-        async function loadHostVan() {
-            setLoading(true)
-            const data = await getVans()
-            setHostVan(data.filter(item => item.id === params.id)[0]) //setVan(data.filter(item=>({item.id===param.id})))
-            setLoading(false)
-         } 
-        
-        loadHostVan()
-
-    }, [params.id])
-
-    //console.log(hostvan)
-
+    const hostvan = useLoaderData().filter(item => item.id === params.id)[0]
+ 
     const activeStyles = {
         fontWeight: 600,
         textDecoration: 'underline'
     }
-    if (loading) {
-        return <h1>Loading...</h1>
-    }
+   
     return (
     <div className="hostvan-detail-container">
       <Link to='/host/hostvans'><h3> ⪡ Back to your vans</h3></Link>
       {/*  to=".." relative="path"   equals   to='/host/hostvans'  */}
-      {hostvan ? (
+   
         <div className="hostvan-detail">
             <div className="hostvan-detail-header">
               <img src={hostvan.imageUrl} className="hostvan-detail-img"/>
@@ -59,6 +44,5 @@ export default function VanDetail() {
             </nav> 
             <Outlet context={{ hostvan }}/>
         </div>
-    ) : <h2>Loading...</h2>}
 </div>)
 }

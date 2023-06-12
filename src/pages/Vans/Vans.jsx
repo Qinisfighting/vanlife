@@ -1,27 +1,22 @@
-import { Link, useSearchParams } from "react-router-dom"
-import { useState,useEffect } from "react"
+import { Link, useSearchParams, useLoaderData } from "react-router-dom"
 import { getVans } from "../../api"
 
-export default function Vans() {
-    const [vans, setVans] = useState([])
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [loading, setLoading] = useState(false)
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+    return getVans()
+}
 
-    useEffect(() => {    
-        async function loadVans() {
-            setLoading(true)
-            const data = await getVans()
-            setVans(data)
-            setLoading(false)
-        }
-        
-        loadVans()
-            
-    }, [])
+export default function Vans() {
+   
+    const [searchParams, setSearchParams] = useSearchParams()
+    const vans = useLoaderData()
+
         const typeFilter = searchParams.get("type")
+
         const displayedType = typeFilter
             ? vans.filter(van => van.type === typeFilter)
             : vans
+            
         const vansElements = displayedType.map(van => {
             const {id, imageUrl, name, price, type} = van
             return (
@@ -42,6 +37,7 @@ export default function Vans() {
             )
         })
 
+      
    /** second way below for the filter function: we don't need to hard code the setSearchParams object property, 
     * instead to create a function with key value pair in string as parameters to merge(concanate) the new url part to the current one.
     * 
@@ -56,11 +52,10 @@ export default function Vans() {
         })
          ...
      <button onClick={() => handleFilterChange("type", "simple")}>Simple</button>
+     <button onClick={() => handleFilterChange("type", "luxury")}>Simple</button>
+     <button onClick={() => handleFilterChange("type", "rugged")}>Simple</button>
      <button onClick={() => handleFilterChange("type", null)}>Clear filter</button>
     } */
-    if (loading) {
-        return <h1>Loading...</h1>
-    }
 
     return (
         <div className="Vans-container">
@@ -73,7 +68,7 @@ export default function Vans() {
               {/*or can wrap or replace the buttons here in/with <Link>, and e.g give path to="?type=simple" for switching filter, and to="." to clear filter, in this way setSearchParams will not be used*/}
              { typeFilter && <span className="clear-filters" onClick={() => setSearchParams({})}>Clear filters</span> }
             
-            </div>    
+            </div>       
            
             <div className="vans-lists">
                 {vansElements}

@@ -1,30 +1,27 @@
 
-import { Link, useParams, useLocation } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { Link, useParams, useLocation, useLoaderData } from "react-router-dom"
+import { getVans } from "../../api"
 
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+    return getVans()
+}
 
 export default function VanDetail() {
     const params = useParams() // console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx line 19), output: {id: "2"}
-    const [van, setVan] = useState(null)
+    const van = useLoaderData().filter(item => item.id === params.id)[0]
     const location = useLocation()
-    
-
-    useEffect(() => {
-        fetch("https://raw.githubusercontent.com/Qinisfighting/vanlife/main/src/vansData.json")   // mock server (server.js) dosen't work...
-        .then(res => res.json())
-        .then(data => setVan(data.filter(item => item.id === params.id)[0])) //setVan(data.filter(item=>({item.id===param.id})))
-    }, [params.id])
-    //console.log(van)
-   
     const search = location.state?.filter || ""   //optional chaining, same like const search = location.state && location.state.filter || ""
     const type = location.state?.type || "all"
     
+   
+
     return (
     <div className="van-detail-container">   
        <Link to={`..${search}`}><h3> ⪡ Back to {type} vans</h3></Link>
       {/** or slice out the type from the search url string(e.g '/vans/?type=rugged'), it start from index 12 until the end, 
          then render <h3> ⪡ Back to all {search.slice(12)} vans</h3>. */}
-      {van ? (
+      
         <div className="van-detail">
             <img src={van.imageUrl} />
             <i className="van-type">{van.type}</i>
@@ -33,6 +30,5 @@ export default function VanDetail() {
             <p>{van.description}</p>
             <button className="link-button">Rent this van</button>
         </div>
-    ) : <h2>Loading...</h2>}
 </div>)
 }

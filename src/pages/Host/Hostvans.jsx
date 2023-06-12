@@ -1,24 +1,15 @@
-import { Link } from "react-router-dom"
-import { useState,useEffect } from "react"
+/* eslint-disable react-refresh/only-export-components */
+import { Link, useLoaderData } from "react-router-dom"
 import { getVans } from "../../api"
 
+export function loader() {
+    return getVans()
+}
+
 export default function Hostvans() {
-    const [hostVans, setHostVans] = useState([])
-    const [loading, setLoading] = useState(false)
-    useEffect(() => {   
-        async function loadHostVans() {
-            setLoading(true)
-            const data = await getVans()
-            setHostVans(data.filter(item => item.hostId === '123'))
-            setLoading(false)      
-        }
-        
-        loadHostVans()
-            
-    }, [hostVans])
-
-   
-
+ 
+    const hostVans = useLoaderData().filter(item => item.hostId === '123')
+    
         const vansElements = hostVans.map(van => {
             const {id, imageUrl, name, price} = van
             return (
@@ -39,9 +30,8 @@ export default function Hostvans() {
 
       
     return (
-        <div className="hostvans-container">
-            <h2>Your listed vans</h2>
-           
+       <div className="hostvans-container">
+            <h2>Your listed vans</h2>          
             <div className="hostvans-lists">
                 {vansElements}
             </div>                                     
