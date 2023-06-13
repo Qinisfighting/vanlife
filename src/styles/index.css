@@ -131,6 +131,34 @@ footer {
   
 }
 
+.error_ {
+  text-align: center;
+  max-width: 600px;
+  height: 60vh;
+  margin: 70px auto;
+  position: relative;
+}
+
+.error_img {
+  max-width: 200px;
+  margin:0 auto;
+  width: 100%;
+  height: auto
+}
+
+.error_ button{
+  background-color: #1f4557;
+  color:white;
+  padding:5px 10px;
+  border-radius: 5px; 
+  font-size: 1em;
+  margin-top:90px; 
+}
+
+.error_ button:hover {
+  transform: translate(1px, 1px);
+}
+
 @media only screen and (max-width: 480px) {
 
     header {

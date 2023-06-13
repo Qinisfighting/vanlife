@@ -17,23 +17,23 @@ import HostVanInfo from "./pages/Host/HostVanInfo"
 import HostVanPricing from "./pages/Host/HostVanPricing"
 import HostVanPhotos from "./pages/Host/HostVanPhotos"
 import Page404 from "./pages/Page404"
-
+import Error from "./components/Error"
 
 const router = createBrowserRouter(createRoutesFromElements(
   /*https://reactrouter.com/en/main/start/concepts#index-routes  */
   <Route path="/" element={<Layout />}>  
   <Route index  element={<Home />} />
   <Route path='about' element={<About />} />
-  <Route path='vans' element={<Vans />} loader={vansLoader} />
-  <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader}/>       
+  <Route path='vans' element={<Vans />} loader={vansLoader} errorElement={<Error />} />
+  <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} errorElement={<Error />}/>       
 {/*1):id is a dynamic id variale, it should be identical to Vans.jsx line 19. 
    2)nested route is only used when you need to have a shared UI, here with vans detail route we don't need to nest.   */}
     <Route path="host" element={<HostLayout />}>   
        <Route index element={<Dashboard />} /> 
        <Route path="income" element={<Income />}  /> 
-       <Route path="hostvans" element={<Hostvans />}  loader={hostVansLoader}/> 
+       <Route path="hostvans" element={<Hostvans />}  loader={hostVansLoader} errorElement={<Error />}/> 
        <Route path="reviews" element={<Reviews />}  /> 
-       <Route path="hostvans/:id" element={<HostvanDetails />} loader={hostVansDetailsLoader} > 
+       <Route path="hostvans/:id" element={<HostvanDetails />} loader={hostVansDetailsLoader} errorElement={<Error />}> 
          <Route index element={<HostVanInfo />} />
          <Route path="pricing" element={<HostVanPricing />} />
          <Route path="photos" element={<HostVanPhotos />} />
