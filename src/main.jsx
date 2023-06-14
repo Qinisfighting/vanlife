@@ -7,6 +7,7 @@ import './styles/home.css'
 import './styles/host.css'
 import './styles/login.css'
 import './styles/vans.css'
+import './styles/login.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
