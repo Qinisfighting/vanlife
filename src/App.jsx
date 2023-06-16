@@ -8,6 +8,7 @@ import HostLayout from "./components/HostLayout"
 import Error from "./components/Error"
 import Home from "./pages/Home"
 import About from "./pages/About" 
+import Register from "./pages/Register" 
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans" 
 import VanDetail, { loader as vanDetailLoader } from "./pages/Vans/VanDetail"
 import Dashboard from "./pages/Host/Dashboard" 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(createRoutesFromElements(
   /*https://reactrouter.com/en/main/start/concepts#index-routes  */
   <Route path="/" element={<Layout />}>  
     <Route index  element={<Home />} />
+    <Route path='register'  element={<Register />} />
     <Route element={<AuthRequired />}>
       <Route path="host" element={<HostLayout />}>   
          <Route index element={<Dashboard />} loader={async() => {return null}}/> 

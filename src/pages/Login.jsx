@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function Login() {
     const[formData, setFormData] = useState({
@@ -17,7 +18,7 @@ export default function Login() {
     
     function handleSubmit(e) {
         e.preventDefault()
-        alert("Successfully logged in!")
+        alert("Wrong email or password!")
     }
     
     
@@ -46,6 +47,11 @@ export default function Login() {
                     Sign in
                 </button>
             </form>
+            <Link to="/register"
+                    className="register"
+                >
+                   ➳ Register
+            </Link>
         </div>
     )
 

@@ -4,7 +4,6 @@ import { getVans } from "../../api"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader( { params }) {
-    console.log(params.id)
     return getVans(params.id)
 }// console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx), output: {id: "2"}
 
