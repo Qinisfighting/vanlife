@@ -1,16 +1,14 @@
 
-import { Link, NavLink, useParams, Outlet, useLoaderData } from "react-router-dom"
-import { getVans } from "../../api"
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
+import { getHostVans } from "../../api"
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
-    return getVans()
+export function loader({ params }) {
+    return getHostVans(params.id)
 }
 
 export default function VanDetail() {
-    const params = useParams() // console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx line 19), output: {id: "2"}
-    const hostvan = useLoaderData().filter(item => item.id === params.id)[0]
- 
+    const hostvan = useLoaderData()
     const activeStyles = {
         fontWeight: 600,
         textDecoration: 'underline'

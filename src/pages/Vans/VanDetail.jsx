@@ -1,15 +1,15 @@
 
-import { Link, useParams, useLocation, useLoaderData } from "react-router-dom"
+import { Link, useLocation, useLoaderData } from "react-router-dom"
 import { getVans } from "../../api"
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
-    return getVans()
-}
+export function loader( { params }) {
+    console.log(params.id)
+    return getVans(params.id)
+}// console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx), output: {id: "2"}
 
 export default function VanDetail() {
-    const params = useParams() // console.log(params): get the id (e.g 2) from the van which is clicked(Vans.jsx line 19), output: {id: "2"}
-    const van = useLoaderData().filter(item => item.id === params.id)[0]
+    const van = useLoaderData()
     const location = useLocation()
     const search = location.state?.filter || ""   //optional chaining, same like const search = location.state && location.state.filter || ""
     const type = location.state?.type || "all"
