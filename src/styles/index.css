@@ -20,6 +20,7 @@ body {
 	background-color: white;	
 	-ms-overflow-style: none;
     scrollbar-width: none;
+  min-height: 85vh;
     
 	
 }
