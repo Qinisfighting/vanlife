@@ -24,5 +24,6 @@ export async function getHostVans(id) {
         }
     }
     const data = await res.json()
-    return id? data.filter(item => item.id === id)[0] : data
+    return id? data.filter(item => item.id === id)[0]
+             : data.filter(item => item.hostId === '123')
 }
