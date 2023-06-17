@@ -22,17 +22,14 @@
   .about-page-cta a {
     background-color: #1f4557;
     color:white;
-    padding:10px 18px;
+    padding:10px;
     text-align: center;
-  }
-   
-  
-  .link-button {
-    margin: 10px 3.5vw 100px;
+    margin: 20px 3.5vw 100px;
     float: right;
     border-radius: 5px; 
   }
-  
+   
+
   .about-page-cta a:hover {
     transform: translate(1px, 1px);
   }
