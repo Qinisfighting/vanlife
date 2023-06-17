@@ -132,6 +132,18 @@ i {
      border-radius: 5px;
 
   }
+
+  .example{
+    color:#c74343;
+    
+  }
+
+  .example a {
+   text-decoration: underline;
+   color: rgba(0, 0, 0, 0.671);
+
+
+  }
    @media only screen and (max-width: 680px) { 
     .host-container {
       margin:30px 3vw;

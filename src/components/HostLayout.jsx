@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom"
-import { Outlet } from "react-router-dom"
+import { NavLink, Outlet, Link } from "react-router-dom"
+
 
 
 export default function HostLayout() {
@@ -12,6 +12,7 @@ export default function HostLayout() {
 
     return (
        <div className="host-container">
+         <h4 className="example">📣 This is a demo host page, to your personal host page, please <Link className="example_link" to="/login">sign in.</Link></h4> 
          <nav className="host-nav">     
            <NavLink to='.' end style={({isActive}) => isActive ? activeStyles : null}>
             {/*'end' prop tells the router to end the matching here, so that dashhoard will not show as active all the time beause of its index position */}
