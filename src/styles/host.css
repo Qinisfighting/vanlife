@@ -1,7 +1,75 @@
+
+.example{
+  color:#c74343;
+  padding-top: 10px;
+  
+}
+
+.example a {
+ text-decoration-line: underline;
+ text-underline-offset: 3px;
+ color: rgba(0, 0, 0, 0.671);
+
+}
+
+.income-container {
+  
+  margin: 30px 5vw;
+  
+  
+}
+.income-container  h2{
+  margin: 5 0 50px;
+  
+}
+
+.transaction-time{
+  font-size: .8em;
+  font-weight: 700;
+  color:rgb(85, 85, 85);
+ 
+
+}
+.span1 {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+}
+
+.income-container img{
+  max-width: 700px;
+  width: 100%;
+  height: auto;
+  
+}
+
+.transaction {
+  font-weight: 700;
+  font-size: 1em;
+}
+.transaction-title {
+  font-weight: 700;
+  padding-top: 30px;
+}
+
+.span2 {
+ float: right;
+ color:rgb(85, 85, 85);
+ font-size: .8em;
+}
+
+.transaction-list {
+  padding: 0 20px;
+}
+
+.transaction-nr {
+  padding: 10px;
+ 
+}
 .host-container {
     margin:30px auto;
     padding: 0;
     width: 70vw;
+    
     
   }
    .host-nav a {
@@ -133,17 +201,9 @@ i {
 
   }
 
-  .example{
-    color:#c74343;
-    
-  }
-
-  .example a {
-   text-decoration: underline;
-   color: rgba(0, 0, 0, 0.671);
 
 
-  }
+ 
    @media only screen and (max-width: 680px) { 
     .host-container {
       margin:30px 3vw;
