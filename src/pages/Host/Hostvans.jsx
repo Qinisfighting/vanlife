@@ -25,7 +25,7 @@ export default function Hostvans() {
                 <span>€{price}/day</span>   
               </div>
               </Link>
-              <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"40px 20px 0", fontSize:"1.2em"}}>🖊</p></Link>
+              <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"40px 20px 0", fontSize:"1em"}}>🖊</p></Link>
             </div> 
             
         )
@@ -47,7 +47,7 @@ export default function Hostvans() {
             {renderVanElements}               
           </Await>  
         </Suspense>                                     
-        <Link onClick={()=>alert("Please log in first")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>    
+        <Link onClick={()=>alert("Please log in first")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
         </div>
     )
 }

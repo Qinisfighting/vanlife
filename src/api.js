@@ -34,8 +34,6 @@ export async function getVans(id) {
     return id? dataArr.filter(item => item.id === id)[0] : dataArr
   }
   
- 
-  
   export async function getHostVans(id) {
     const querySnapshot = await getDocs(vansCollectionRef)
     const dataArr = querySnapshot.docs.map(doc => ({
