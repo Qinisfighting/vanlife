@@ -21,7 +21,7 @@ export default function Review() {
     const renderReviewData = () => {
        return reviewsData.map(review =>( 
         <>
-        <div className="transaction" key={review.id}>
+        <div className="nexted-container-main" key={review.id}>
            {[...Array(review.rating)].map((_, i) => (
                             <img alt="star" key={i} src={star} className="star" style={{width:20, paddingRight:5 }} />
            ))}
@@ -38,7 +38,7 @@ export default function Review() {
         <div className="nexted-container">
            <h2>Your reviews<span className="span2"> last <u>30 days</u></span></h2>
            <img alt="reviews_graph" src={reviews_graph} />
-           <h3 className="transaction-title">Reviews({reviewsData.length})</h3> 
+           <h3 className="main-title">Reviews({reviewsData.length})</h3> 
            {renderReviewData()}
         </div>
     )

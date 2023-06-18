@@ -7,8 +7,8 @@ export default function Income() {
            <p className="transaction-time">Last <span className="span1">30 days</span></p>
            <h1>€2,260</h1>
            <img alt="income_graph" src={income_graph} />
-           <div className="transaction">
-               <p className="transaction-title">Your transactions(3) <span className="span2">Last 30 days</span></p>
+           <div className="nexted-container-main">
+               <p className="main-title">Your transactions(3) <span className="span2">Last 30 days</span></p>
                <hr />
                <div className="transaction-list">
                  <p className="transaction-nr">€720 <span className="span2">1/12/22</span></p>

@@ -31,7 +31,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 <Route path='register'  element={<Register />} />
 <Route element={<AuthRequired />}>
 <Route path="host" element={<HostLayout />}>   
-  <Route index element={<Dashboard />} loader={async() => {return null}}/> 
+  <Route index element={<Dashboard />} loader={hostVansLoader} errorElement={<Error />}/> 
   <Route path="income" element={<Income />}  /> 
   <Route path="hostvans" element={<Hostvans />}  loader={hostVansLoader} errorElement={<Error />}/> 
   <Route path="reviews" element={<Reviews />}  /> 

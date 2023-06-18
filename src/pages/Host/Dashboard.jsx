@@ -1,11 +1,64 @@
-import { Link } from "react-router-dom"
-//import { Outlet } from "react-router-dom" //all the children from App.jsx <Route path="/host" element={<Dashboard />}>
+import { Link, useLoaderData, defer, Await } from "react-router-dom"
+import { getHostVans } from "../../api"
+import { Suspense } from "react"
+
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader() {
+    return defer({ vans: getHostVans() })
+}
+
 
 export default function Dashboard() {
+    const dataPromise = useLoaderData()
+    
+
+    function renderVanElements(hostVans){  
+        const vansElements = hostVans.map(van => {
+        const {id, imageUrl, name, price} = van
+        return (
+           
+            <div key={id} className="dashboard-hostvan-tile">
+              <Link to={`hostvans/${id}`}>
+              <img src={imageUrl} alt={name} className="hostvan-img" style={{width:150, padding:"0 20px 20px"}} />
+              <div className="hostvan-text">
+                <h3>{name}</h3>
+                <span>€{price}/day</span>   
+              </div>
+              </Link>
+            </div> 
+            
+        )
+    })
     return (
-        <>
-            <h1>Dashboard goes here</h1>
-          
-        </>
+        <div className="hostvans-lists">
+           {vansElements}
+        </div> 
+    )
+}   
+      
+      
+    return (
+
+    <div className="nexted-container">   
+         <div className="dashboard-welcome">
+            <h2>Welcome</h2>
+            <p className="main-title">Income last <u>30 days</u> <span className="span2"><Link to="income">Details</Link></span></p>
+            <h1>€2,260</h1>  
+         </div>
+
+         <div className="dashboard-review">
+         <p className="dashboard-review-title">Review score ⭐️ 5.0/5 <span className="span2"><Link to="reviews">Details</Link></span></p> 
+         </div>
+
+         <div className="hostvans-container">
+            <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your listed vans <span className="span2"><Link to="hostvans">View all</Link></span></h3>          
+            <Suspense fallback={<h2>Loading hostvans...</h2>}> 
+               <Await resolve={dataPromise.vans}>
+                  {renderVanElements}               
+               </Await>  
+            </Suspense>                                     
+        </div>
+    </div>
     )
 }
