@@ -1,5 +1,6 @@
+
 [
-    { 
+    { "__comment__": "this json file is for non-firebase fetch call",
       "id": "1",
       "name": "Modest Explorer",
       "price": 60,
