@@ -26,6 +26,7 @@ export default function Dashboard() {
                 <span>€{price}/day</span>   
               </div>
               </Link>
+              <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"25px 20px 0", fontSize:"1em"}}>🖊</p></Link>
             </div> 
             
         )
@@ -57,7 +58,8 @@ export default function Dashboard() {
                <Await resolve={dataPromise.vans}>
                   {renderVanElements}               
                </Await>  
-            </Suspense>                                     
+            </Suspense>  
+            <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
         </div>
     </div>
     )
