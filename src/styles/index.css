@@ -71,11 +71,17 @@ a {
     
   }
   
-  header .login-icon {
+  .login-icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .logout-icon {
     height: 20px;
     width: 20px;
   }
   
+
   header .login-link {
     display: inline-flex;
     align-items: center;

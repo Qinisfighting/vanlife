@@ -27,29 +27,29 @@ import AuthRequired from "./components/AuthRequired"
 const router = createBrowserRouter(createRoutesFromElements(
 /*https://reactrouter.com/en/main/start/concepts#index-routes  */
 <Route path="/" element={<Layout />}>  
-<Route index  element={<Home />} />
-<Route path='register'  element={<Register />} />
-<Route element={<AuthRequired />}>
-<Route path="host" element={<HostLayout />}>   
-  <Route index element={<Dashboard />} loader={hostVansLoader} errorElement={<Error />}/> 
-  <Route path="income" element={<Income />}  /> 
-  <Route path="hostvans" element={<Hostvans />}  loader={hostVansLoader} errorElement={<Error />}/> 
-  <Route path="reviews" element={<Reviews />}  /> 
-  <Route path="hostvans/:id" element={<HostvanDetails />} loader={hostVansDetailsLoader} errorElement={<Error />}> 
-    <Route index element={<HostVanInfo />} />
-    <Route path="pricing" element={<HostVanPricing />} />
-    <Route path="photos" element={<HostVanPhotos />} />
-</Route> 
-</Route>
-</Route>
-<Route path='about' element={<About />} />
-<Route path='vans' element={<Vans />} loader={vansLoader} errorElement={<Error />} />
-<Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} errorElement={<Error />}/>       
-{/*1):id is a dynamic id variale, it should be identical to Vans.jsx line 19. 
-2)nested route is only used when you need to have a shared UI, here with vans detail route we don't need to nest.   */}
-<Route path="login" element={<Login />} />  
-<Route path='*' element={<Page404 />} />  
-{/*catchall route with path='*' */} 
+    <Route index  element={<Home />} />
+    <Route element={<AuthRequired />}>
+        <Route path="host" element={<HostLayout />}>   
+            <Route index element={<Dashboard />} loader={hostVansLoader} errorElement={<Error />}/> 
+            <Route path="income" element={<Income />}  /> 
+            <Route path="hostvans" element={<Hostvans />}  loader={hostVansLoader} errorElement={<Error />}/> 
+            <Route path="reviews" element={<Reviews />}  /> 
+            <Route path="hostvans/:id" element={<HostvanDetails />} loader={hostVansDetailsLoader} errorElement={<Error />}> 
+                <Route index element={<HostVanInfo />} />
+                <Route path="pricing" element={<HostVanPricing />} />
+                <Route path="photos" element={<HostVanPhotos />} />
+        </Route> 
+    </Route>
+    </Route>
+    <Route path='about' element={<About />} />
+    <Route path='vans' element={<Vans />} loader={vansLoader} errorElement={<Error />} />
+    <Route path="vans/:id" element={<VanDetail />} loader={vanDetailLoader} errorElement={<Error />}/>       
+    {/*1):id is a dynamic id variale, it should be identical to Vans.jsx line 19. 
+    2)nested route is only used when you need to have a shared UI, here with vans detail route we don't need to nest.   */}
+    <Route path="login" element={<Login />} />
+    <Route path='register'  element={<Register />} />  
+    <Route path='*' element={<Page404 />} />  
+    {/*catchall route with path='*' */} 
 </Route>
 
 ))

@@ -12,8 +12,11 @@ export default function VanDetail() {
     const location = useLocation()
     const search = location.state?.filter || ""   //optional chaining, same like const search = location.state && location.state.filter || ""
     const type = location.state?.type || "all"
-    
-   
+    const isLoggedIn = localStorage.getItem("loggedin")
+
+ function handleClick() {
+    !isLoggedIn && alert("Please sign in first.")
+ } 
 
     return (
     <div className="van-detail-container">   
@@ -29,7 +32,7 @@ export default function VanDetail() {
                      <h2>{van.name}</h2>
                      <p className="van-price"><span>€{van.price}</span>/day</p>
                      <p>{van.description}</p>
-                     <button className="link-button">Rent this van</button>
+                     <button className="link-button" onClick={handleClick}>Rent this van</button>
                    </div>)
             }                          
         </Await>  
