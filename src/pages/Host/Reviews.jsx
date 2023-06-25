@@ -2,6 +2,7 @@ import reviews_graph from "../../assets/reviews_graph.png"
 import star from "../../assets/star.png"
 
 export default function Review() {
+    const isLoggedIn = localStorage.getItem("loggedin")
     const reviewsData = [
         {
             rating: 5,
@@ -35,11 +36,17 @@ export default function Review() {
     }
 
     return (
-        <div className="nexted-container">
-           <h2>Your reviews<span className="span2"> last <u>30 days</u></span></h2>
-           <img alt="reviews_graph" src={reviews_graph} />
-           <h3 className="main-title">Reviews({reviewsData.length})</h3> 
-           {renderReviewData()}
-        </div>
+        !isLoggedIn?
+          <div className="nexted-container">
+            <h2>Your reviews<span className="span2"> last <u>30 days</u></span></h2>
+            <img alt="reviews_graph" src={reviews_graph} />
+            <h3 className="main-title">Reviews({reviewsData.length})</h3> 
+            {renderReviewData()}
+          </div>
+        :  
+          <div className="nexted-container">
+            <h2>Your reviews<span className="span2"> last <u>30 days</u></span></h2>  
+            <h3 className="main-title">Reviews(0)</h3> 
+          </div> 
     )
 }

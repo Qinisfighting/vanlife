@@ -10,7 +10,7 @@ export function loader() {
 export default function Hostvans() {
  
     const dataPromise = useLoaderData()
-    
+    const isLoggedIn = localStorage.getItem("loggedin")
 
     function renderVanElements(hostVans){  
         const vansElements = hostVans.map(van => {
@@ -25,7 +25,7 @@ export default function Hostvans() {
                 <span>€{price}/day</span>   
               </div>
               </Link>
-              <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"40px 20px 0", fontSize:"1em"}}>🖊</p></Link>
+              <Link onClick={()=>alert("Please sign in first.")}><p className="span2" style={{padding:"40px 20px 0", fontSize:"1em"}}>🖊</p></Link>
             </div> 
             
         )
@@ -39,15 +39,20 @@ export default function Hostvans() {
       
       
     return (
-       <div className="hostvans-container">
-
+      !isLoggedIn?
+      <div className="hostvans-container">
          <h2>Your listed vans</h2>          
-        <Suspense fallback={<h2>Loading hostvans...</h2>}> 
+       <Suspense fallback={<h2>Loading hostvans...</h2>}> 
           <Await resolve={dataPromise.vans}>
             {renderVanElements}               
           </Await>  
-        </Suspense>                                     
-        <Link onClick={()=>alert("Please log in first")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
-        </div>
+       </Suspense>                                     
+       <Link onClick={()=>alert("Please sign in first")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
+      </div>
+     :
+      <div className="hostvans-container">
+        <h2>Your have no vans</h2>                                           
+        <Link><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
+      </div>
     )
 }

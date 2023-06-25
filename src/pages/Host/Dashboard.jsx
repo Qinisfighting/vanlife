@@ -11,6 +11,7 @@ export function loader() {
 
 export default function Dashboard() {
     const dataPromise = useLoaderData()
+    const isLoggedIn = localStorage.getItem("loggedin")
     
 
     function renderVanElements(hostVans){  
@@ -26,32 +27,30 @@ export default function Dashboard() {
                 <span>€{price}/day</span>   
               </div>
               </Link>
-              <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"25px 20px 0", fontSize:"1em"}}>🖊</p></Link>
+              <Link onClick={()=>alert("Please sign in first.")}><p className="span2" style={{padding:"25px 20px 0", fontSize:"1em"}}>🖊</p></Link>
             </div> 
             
         )
     })
     return (
-        <div className="hostvans-lists">
+        <div className="hostvans-lists">   
            {vansElements}
-        </div> 
+        </div>
     )
 }   
       
       
     return (
-
+    !isLoggedIn?
     <div className="nexted-container">   
          <div className="dashboard-welcome">
             <h2>Welcome</h2>
             <p className="main-title">Income last <u>30 days</u> <span className="span2"><Link to="income">Details</Link></span></p>
             <h1>€2,260</h1>  
          </div>
-
          <div className="dashboard-review">
-         <p className="dashboard-review-title">Review score ⭐️ 5.0/5 <span className="span2"><Link to="reviews">Details</Link></span></p> 
+            <p className="dashboard-review-title">Review score ⭐️ 5.0/5 <span className="span2"><Link to="reviews">Details</Link></span></p> 
          </div>
-
          <div className="hostvans-container">
             <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your listed vans <span className="span2"><Link to="hostvans">View all</Link></span></h3>          
             <Suspense fallback={<h2>Loading hostvans...</h2>}> 
@@ -59,7 +58,24 @@ export default function Dashboard() {
                   {renderVanElements}               
                </Await>  
             </Suspense>  
-            <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
+            <Link onClick={()=>alert("Please sign in first.")}><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
+        </div>
+    </div>
+    :
+    <div className="nexted-container">   
+        <div className="dashboard-welcome">
+          <h2>Welcome</h2>
+          <p className="main-title">Income last <u>30 days</u></p>
+          <h1>€0</h1>  
+        </div>
+
+        <div className="dashboard-review">
+            <p className="dashboard-review-title">Review score ⭐️: You have no review.</p> 
+        </div>
+
+        <div className="hostvans-container">
+            <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your have no vans</h3>          
+            <Link><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
         </div>
     </div>
     )
