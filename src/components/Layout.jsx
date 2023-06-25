@@ -1,7 +1,7 @@
 import Header from "./Header"
 import Footer from "./Footer"
 
-import { Outlet } from "react-router-dom" //Outlet is so to say all the children from App.jsx  <Route element={<Layout />}>
+import { Outlet } from "react-router-dom" //Outlet is all the children from App.jsx  <Route element={<Layout />}>
 
 export default function Layout() {
     return (
