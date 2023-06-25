@@ -1,11 +1,7 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
-
 
 export default function EditVan() {
 
- 
-    const navigate = useNavigate();
     const[formData, setFormData] = useState({
         email: "",
         password: "",
@@ -37,8 +33,7 @@ export default function EditVan() {
     return (
         <div className="v-form-container">
             <form className="v-form" onSubmit={handleSubmit}>
-              
-              
+                <label className="label-form">Edit your van</label>
                 <input 
                     type="text"
                     placeholder="Name"
@@ -86,9 +81,10 @@ export default function EditVan() {
                     required
                 />
 
-
+                    <label className="label-upload" htmlFor="myUpload"> Choose the images you want to upload: </label>
                     <input 
                         type="file" 
+                        accept=".jpg, .jpeg, .png, .svg, .gif"
                         id="myUpload"
                         name="imageUrl"
                         value={formData.imageUrl}
@@ -101,7 +97,7 @@ export default function EditVan() {
                     <button 
                         className="v-form--submit"
                     >
-                        Save Van
+                        Save
                     </button>
             </form>
         </div>

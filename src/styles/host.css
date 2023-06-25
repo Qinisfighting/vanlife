@@ -31,6 +31,18 @@
 
 }
 
+.label-form {
+  width: 100%;
+  padding:0 8px 20px;
+  font-size: 2rem;
+}
+
+.label-upload {
+  width: 100%;
+  padding-bottom:10px;
+  font-size: 1.3rem;
+}
+
 textarea {
   width: 100%;
   margin-bottom: 30px;
