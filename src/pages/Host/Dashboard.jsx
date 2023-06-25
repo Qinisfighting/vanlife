@@ -75,7 +75,7 @@ export default function Dashboard() {
 
         <div className="hostvans-container">
             <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your have no vans</h3>          
-            <Link><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
+            <Link to="editvan"><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
         </div>
     </div>
     )

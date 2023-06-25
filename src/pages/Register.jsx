@@ -6,7 +6,6 @@ import { auth } from '../api';
 export default function Register() {
 
     const navigate = useNavigate();
-    //const [isLoggedIn, setIsLoggedIn] = useState(false)
     const[formData, setFormData] = useState({
         email: "",
         password: "",

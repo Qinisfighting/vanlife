@@ -52,7 +52,7 @@ export default function Hostvans() {
      :
       <div className="hostvans-container">
         <h2>Your have no vans</h2>                                           
-        <Link><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
+        <Link to="/host/editvan"><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
       </div>
     )
 }
