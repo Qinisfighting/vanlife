@@ -1,26 +1,21 @@
+import { useNavigate } from "react-router-dom"
 import { useState } from "react"
-//import { initializeApp } from "firebase/app";
 import {
     getFirestore,
     collection,
     addDoc,
   } from "firebase/firestore"
 import app from '../../api';
-//import { getAuth } from "firebase/auth";
+//import { auth } from '../../api';
+   
 
- 
 const db = getFirestore(app)
-//const auth = getAuth();
-/*const uid = () => {
-    if(auth.currentUser !== null){
-        return auth.currentUser.uid
-    } 
-} 
-*/
+//const user = auth.currrentUser
+
 
   
 export default function EditVan() {
-
+    const navigate = useNavigate();
     const[formData, setFormData] = useState({
         name: "",
         price: "",
@@ -28,9 +23,9 @@ export default function EditVan() {
         imageUrl: "",
         type: "",
         hostId: ""
-        //hostId: uid
+       //hostId: user.uid
     })
-
+   
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -38,12 +33,15 @@ export default function EditVan() {
             ...prev,
             [name]: value,
         }))
+     
     }
     
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault()  
     const docRef = await addDoc(collection(db, "vans"), formData
     )
+      navigate("/vans")
+      alert("Your van is online!")    
     console.log("Document written with ID: ", docRef.id);
     }
     

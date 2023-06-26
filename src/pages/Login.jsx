@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link,  useNavigate} from "react-router-dom";
-import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../api';
 
 export default function Login() {
@@ -29,7 +29,6 @@ export default function Login() {
             alert("Successfully signed in!") 
             localStorage.setItem("loggedin", true) 
             navigate("/host")
-            
             console.log(user);
         })
         .catch((error) => {

@@ -44,7 +44,7 @@ export default function VanDetail() {
                            </NavLink> 
                         </nav> 
                         <Outlet context={{ hostvan }}/>
-                        <Link onClick={()=>{  !isLoggedIn? alert("Please log in first.") : null}}><p className="span2" style={{padding:"0 20px", fontSize:"1.3em"}}>🖊</p></Link>
+                        <Link onClick={()=>{!isLoggedIn? alert("Please sign in first.") : null}}><p className="span2" style={{padding:"0 20px", fontSize:"1.3em"}}>🖊</p></Link>
                      </div>)
             }                          
          </Await>  
