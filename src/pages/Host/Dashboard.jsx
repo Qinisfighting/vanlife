@@ -27,7 +27,7 @@ export default function Dashboard() {
                 <span>€{price}/day</span>   
               </div>
               </Link>
-              <Link onClick={()=>alert("Please sign in first.")}><p className="span2" style={{padding:"25px 20px 0", fontSize:"1em"}}>🖊</p></Link>
+              <Link onClick={()=>{!isLoggedIn? alert("Please sign in first.") : null}}><p className="span2" style={{padding:"25px 20px 0", fontSize:"1em"}}>🖊</p></Link>
             </div> 
             
         )
@@ -73,10 +73,21 @@ export default function Dashboard() {
             <p className="dashboard-review-title">Review score ⭐️: You have no review.</p> 
         </div>
 
-        <div className="hostvans-container">
-            <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your have no vans</h3>          
-            <Link to="editvan"><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>                                       
-        </div>
+     <div className="hostvans-container">
+        <h3 className="main-title" style={{padding:"20px 10px 0"}}>Your have no vans</h3>          
+        <Link to="editvan"><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.5em"}}>➕</p></Link>   
+    {/**{dataPromise.vans.length === 0 && <h2>Your have no vans</h2>}
+    <div className="hostvans-container">
+        <h2>Your listed vans</h2>          
+        <Suspense fallback={<h2>Loading hostvans...</h2>}> 
+            <Await resolve={dataPromise.vans}>
+                {renderVanElements}               
+            </Await>  
+        </Suspense>                                     
+        <Link to="editvan"><p className="span2" style={{padding:"0 30px 100px", fontSize:"1.3em"}}>➕</p></Link>    
+    </div>                                           
+     */}    
+     </div>
     </div>
     )
 }

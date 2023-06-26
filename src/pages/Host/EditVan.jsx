@@ -1,18 +1,34 @@
 import { useState } from "react"
+//import { initializeApp } from "firebase/app";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+  } from "firebase/firestore"
+import app from '../../api';
+//import { getAuth } from "firebase/auth";
 
+ 
+const db = getFirestore(app)
+//const auth = getAuth();
+/*const uid = () => {
+    if(auth.currentUser !== null){
+        return auth.currentUser.uid
+    } 
+} 
+*/
+
+  
 export default function EditVan() {
 
     const[formData, setFormData] = useState({
-        email: "",
-        password: "",
-        confirmPassword:"",
-        isNewsletter:false,
         name: "",
         price: "",
         description: "",
         imageUrl: "",
         type: "",
-        hostId: "123" 
+        hostId: ""
+        //hostId: uid
     })
 
 
@@ -20,20 +36,22 @@ export default function EditVan() {
         const {name, value} = e.target;
         setFormData(prev => ({
             ...prev,
-            [name]: value 
+            [name]: value,
         }))
     }
     
     async function handleSubmit(e) {
         e.preventDefault()
-        
+    const docRef = await addDoc(collection(db, "vans"), formData
+    )
+    console.log("Document written with ID: ", docRef.id);
     }
     
     
     return (
         <div className="v-form-container">
             <form className="v-form" onSubmit={handleSubmit}>
-                <label className="label-form">Edit your van</label>
+                <label className="label-form">Add new van</label>
                 <input 
                     type="text"
                     placeholder="Name"
@@ -66,7 +84,7 @@ export default function EditVan() {
                 <input 
                     type="number" 
                     min="0"
-                    placeholder="Price in euro"
+                    placeholder="€"
                     name="price"
                     className="form--input"
                     value={formData.price}
@@ -81,7 +99,7 @@ export default function EditVan() {
                     required
                 />
 
-                    <label className="label-upload" htmlFor="myUpload"> Choose the images you want to upload: </label>
+                    <label className="label-upload" htmlFor="myUpload"> Choose the images: </label>
                     <input 
                         type="file" 
                         accept=".jpg, .jpeg, .png, .svg, .gif"
@@ -97,7 +115,7 @@ export default function EditVan() {
                     <button 
                         className="v-form--submit"
                     >
-                        Save
+                        Upload online
                     </button>
             </form>
         </div>

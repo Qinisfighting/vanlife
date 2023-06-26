@@ -3,6 +3,17 @@
 import { Link, NavLink, useNavigate } from "react-router-dom"
 import avatar from '../assets/avatar.png'
 import logout from '../assets/logout.png'
+import { auth } from '../api';
+import { signOut } from "firebase/auth";
+
+
+//const auth = getAuth();
+/*const uid = () => {
+    if(auth.currentUser !== null){
+        return auth.currentUser.uid
+    } 
+} 
+*/
 
 export default function Header() {
     const isLoggedIn = localStorage.getItem("loggedin")
@@ -15,9 +26,15 @@ export default function Header() {
    
      function handleLogout(){    
         localStorage.removeItem("loggedin")
-        
-        navigate("/")
-        alert("Successfully signed out!") 
+        signOut(auth)
+       .then(() => {
+         navigate("/")
+         alert("Successfully signed out!") 
+        })
+       .catch((error) => {
+         console.log(error);
+       });
+       
      }
     return (
         <header>

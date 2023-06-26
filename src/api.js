@@ -4,7 +4,7 @@ import {
     getFirestore,
     collection,
     getDocs,
-  } from "firebase/firestore/lite"
+  } from "firebase/firestore"
   import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,9 +25,13 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 const vansCollectionRef = collection(db, "vans")
+//const isLoggedIn = localStorage.getItem("loggedin")
 
 export const auth = getAuth(app);
+//const user = auth.currentUser;
 export default app;
+
+
 
 export async function getVans(id) {
     const querySnapshot = await getDocs(vansCollectionRef)
@@ -45,7 +49,9 @@ export async function getVans(id) {
       id: doc.id
     }))
     return id? dataArr.filter(item => item.id === id)[0]
-             : dataArr.filter(item => item.hostId === '123') 
+           : dataArr.filter(item => item.hostId === '123') 
+           // : dataArr.filter(item => user?item.hostId === "123"
+             //                            :item.hostId === user.uid) 
   }
 
 /**

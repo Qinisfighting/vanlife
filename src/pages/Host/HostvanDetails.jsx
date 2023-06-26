@@ -9,6 +9,7 @@ export function loader({ params }) {
 
 export default function VanDetail() {
     const dataPromise = useLoaderData()
+    const isLoggedIn = localStorage.getItem("loggedin")
     const activeStyles = {
         fontWeight: 600,
         textDecoration: 'underline'
@@ -21,17 +22,14 @@ export default function VanDetail() {
    
       <Suspense fallback={<h2>Loading...</h2>}> 
          <Await resolve={dataPromise.van}>
-          {hostvan => (<div className="hostvan-detail">
-         
-                           <div className="hostvan-detail-header">
-                              
+          {hostvan => (<div className="hostvan-detail">   
+                           <div className="hostvan-detail-header">      
                               <img src={hostvan.imageUrl} className="hostvan-detail-img"/>
                               <div className='hostvan-detail-header-text'>
                                  <i className="hostvan-type">{hostvan.type} </i>
                                  <h2>{hostvan.name}</h2>
                                  <p className="hostvan-price"><span>€{hostvan.price}</span>/day</p>
-                              </div>
-                              
+                              </div>         
                            </div> 
                            
                         <nav className="hostvan-detail-body">
@@ -46,7 +44,7 @@ export default function VanDetail() {
                            </NavLink> 
                         </nav> 
                         <Outlet context={{ hostvan }}/>
-                        <Link onClick={()=>alert("Please log in first.")}><p className="span2" style={{padding:"0 20px", fontSize:"1.3em"}}>🖊</p></Link>
+                        <Link onClick={()=>{  !isLoggedIn? alert("Please log in first.") : null}}><p className="span2" style={{padding:"0 20px", fontSize:"1.3em"}}>🖊</p></Link>
                      </div>)
             }                          
          </Await>  
