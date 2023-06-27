@@ -1,31 +1,34 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import {
-    getFirestore,
     collection,
     addDoc,
   } from "firebase/firestore"
-import app from '../../api';
-//import { auth } from '../../api';
-   
+import { storage, db } from "../../api";
+import { ref, uploadBytes } from 'firebase/storage';
+import { v4 } from "uuid";
 
-const db = getFirestore(app)
-//const user = auth.currrentUser
-
-
-  
 export default function EditVan() {
     const navigate = useNavigate();
+ 
+    const [imageUpload, setImageUpload] = useState(null);
     const[formData, setFormData] = useState({
         name: "",
         price: "",
         description: "",
-        imageUrl: "",
+        imageUrl: "https://firebasestorage.googleapis.com/v0/b/qinsvanlife.appspot.com/o/images%2Fbackground.png05ec320b-5deb-4f20-b3a6-5b809704f086?alt=media&token=88197859-fb5b-4843-8696-24d0a77c9761",
         type: "",
         hostId: ""
        //hostId: user.uid
+       
     })
-   
+  
+    const uploadFile = () => {
+        if (imageUpload === null) return;
+         const imageRef = ref(storage, `images/${imageUpload.name + v4()}`); //name the image random and unique 
+         uploadBytes(imageRef, imageUpload)
+                 }
+
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -40,6 +43,7 @@ export default function EditVan() {
         e.preventDefault()  
     const docRef = await addDoc(collection(db, "vans"), formData
     )
+      uploadFile()
       navigate("/vans")
       alert("Your van is online!")    
     console.log("Document written with ID: ", docRef.id);
@@ -103,8 +107,10 @@ export default function EditVan() {
                         accept=".jpg, .jpeg, .png, .svg, .gif"
                         id="myUpload"
                         name="imageUrl"
-                        value={formData.imageUrl}
-                        onChange={handleChange} 
+                       // value={formData.imageUrl}
+                       onChange={(event) => {
+                        setImageUpload(event.target.files[0]);
+                      }} 
                         multiple        
                     />
                 
@@ -113,7 +119,7 @@ export default function EditVan() {
                     <button 
                         className="v-form--submit"
                     >
-                        Upload online
+                        Make public
                     </button>
             </form>
         </div>

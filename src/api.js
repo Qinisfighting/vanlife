@@ -1,4 +1,3 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
     getFirestore,
@@ -6,11 +5,10 @@ import {
     getDocs,
   } from "firebase/firestore"
   import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase } from 'firebase/database';
+  import { getStorage } from 'firebase/storage';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyCx4jCyaZqqSEQ6Fs_1osmAzLKx46uOyyY",
   authDomain: "qinsvanlife.firebaseapp.com",
@@ -20,20 +18,20 @@ const firebaseConfig = {
   appId: "1:10917108861:web:bfe9769ccb16b534132514",
   measurementId: "G-G3SPS3JGYP"
 };
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app)
-const vansCollectionRef = collection(db, "vans")
 //const isLoggedIn = localStorage.getItem("loggedin")
 
-export const auth = getAuth(app);
-//const user = auth.currentUser;
+//export const user = auth.currentUser;
 export default app;
+export const auth = getAuth(app);
+export const db = getFirestore(app)
+export const storage = getStorage(app);
+export const database = getDatabase(app);
 
-
+const vansCollectionRef = collection(db, "vans")
 
 export async function getVans(id) {
+
     const querySnapshot = await getDocs(vansCollectionRef)
     const dataArr = querySnapshot.docs.map(doc => ({
       ...doc.data(),
@@ -53,6 +51,9 @@ export async function getVans(id) {
            // : dataArr.filter(item => user?item.hostId === "123"
              //                            :item.hostId === user.uid) 
   }
+
+
+
 
 /**
  * data fetch call from raw json file instead of from fasebase
