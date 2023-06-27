@@ -14,9 +14,6 @@ export default function Vans() {
 
         const typeFilter = searchParams.get("type")
 
-       
-
-      
    /** second way below for the filter function: we don't need to hard code the setSearchParams object property, 
     * instead to create a function with key value pair in string as parameters to merge(concanate) the new url part to the current one.
     * 
@@ -66,8 +63,8 @@ export default function Vans() {
                     <>
                     <div className="filters">
                     <button className={`${typeFilter === "simple" ? "simple-selected" : "simple"}`}  onClick={() => setSearchParams({type: "simple"})}>Simple</button>
-                    <button className={`${typeFilter === "luxury" ? "luxury-selected" : "luxury"}`} onClick={() => setSearchParams({type: "luxury"})}>Rugged</button>
-                    <button className={`${typeFilter === "rugged" ? "rugged-selected" : "rugged"}`}  onClick={() => setSearchParams({type: "rugged"})}>Luxury</button>
+                    <button className={`${typeFilter === "luxury" ? "luxury-selected" : "luxury"}`} onClick={() => setSearchParams({type: "luxury"})}>Luxury</button>
+                    <button className={`${typeFilter === "rugged" ? "rugged-selected" : "rugged"}`}  onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
                     {/*or can wrap or replace the buttons here in/with <Link>, and e.g give path to="?type=simple" for switching filter, and to="." to clear filter, in this way setSearchParams will not be used*/}
                    { typeFilter && <span className="clear-filters" onClick={() => setSearchParams({})}>Clear filters</span> }
                   
