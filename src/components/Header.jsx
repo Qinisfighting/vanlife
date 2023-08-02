@@ -7,14 +7,6 @@ import { auth } from '../api';
 import { signOut } from "firebase/auth";
 
 
-//const auth = getAuth();
-/*const uid = () => {
-    if(auth.currentUser !== null){
-        return auth.currentUser.uid
-    } 
-} 
-*/
-
 export default function Header() {
     const isLoggedIn = localStorage.getItem("loggedin")
     const navigate = useNavigate();

@@ -10,13 +10,13 @@ import { v4 } from "uuid";
 
 export default function EditVan() {
     const navigate = useNavigate();
- 
+    const testURL = "https://firebasestorage.googleapis.com/v0/b/qinsvanlife.appspot.com/o/images%2Fbackground.png05ec320b-5deb-4f20-b3a6-5b809704f086?alt=media&token=88197859-fb5b-4843-8696-24d0a77c9761"
     const [imageUpload, setImageUpload] = useState(null);
-    const[formData, setFormData] = useState({
+    const [formData, setFormData] = useState({
         name: "",
         price: "",
         description: "",
-        imageUrl: "https://firebasestorage.googleapis.com/v0/b/qinsvanlife.appspot.com/o/images%2Fbackground.png05ec320b-5deb-4f20-b3a6-5b809704f086?alt=media&token=88197859-fb5b-4843-8696-24d0a77c9761",
+        imageUrl: testURL,
         type: "",
         hostId: ""
        //hostId: user.uid
@@ -107,8 +107,7 @@ export default function EditVan() {
                         accept=".jpg, .jpeg, .png, .svg, .gif"
                         id="myUpload"
                         name="imageUrl"
-                       // value={formData.imageUrl}
-                       onChange={(event) => {
+                        onChange={(event) => {
                         setImageUpload(event.target.files[0]);
                       }} 
                         multiple        
