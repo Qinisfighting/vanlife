@@ -1,7 +1,17 @@
-
-
 export default function Footer() {
-    return (
-        <footer>QIN勤©2023 up&qu</footer>
-    )
+  return (
+    <footer>
+      {" "}
+      <h5>
+        © {new Date().getFullYear()} by{" "}
+        <a
+          href="https://www.yanqin.de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          QIN's code
+        </a>
+      </h5>
+    </footer>
+  );
 }
